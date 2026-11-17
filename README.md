@@ -30,7 +30,11 @@ FinallyMigrate 补上这一环：
 ## 构建
 
 ```bash
+# 命令行版（保留控制台，供终端使用）
 go build -o finallymigrate.exe .
+
+# 图形界面版（无控制台窗口，双击运行用）
+go build -ldflags "-H windowsgui" -o finallymigrate-gui.exe .
 ```
 
 仓库内的 `rsrc_windows_amd64.syso` 已包含应用图标资源，构建产物自动带图标；修改 `assets/` 图标后可用 `go run ./tools/genicon` 重新生成，再用 [rsrc](https://github.com/akavel/rsrc) 重做 `.syso`。
